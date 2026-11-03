@@ -1,0 +1,392 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ногай тил — 8 класс</title><style>
+:root{--green:#0c6134;--bg:#f4f1ec;--line:#e6e2db;--ink:#25282a}*{box-sizing:border-box}body{margin:0;background:var(--bg);font:14px Arial,Helvetica,sans-serif;color:var(--ink);height:100vh;display:flex;flex-direction:column}button,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid #147a46;outline-offset:2px}.top{height:62px;flex:none;display:flex;align-items:center;gap:10px;padding:0 22px;background:#faf9f7;border-bottom:1px solid #e6e2dd}.brand{display:flex;align-items:center;gap:12px;white-space:nowrap;margin-right:26px}.flower{font-size:37px;color:#b8842d}.brand strong{font: bold 26px Georgia,serif;color:#101719}.brand small{color:#555}.topnav{display:flex;align-items:stretch;height:100%;gap:4px}.top button,.bottom button{border:0;background:transparent;border-radius:8px;color:#30363a;padding:10px 12px;white-space:nowrap}.top button:hover,.bottom button:hover,.iconbtn:hover{background:#e8ebe5}.topnav button.active{color:var(--green);font-weight:700;border-bottom:3px solid var(--green);border-radius:0}.grow{flex:1}.search{display:flex;gap:5px;align-items:center;background:#f1efec;padding:0 10px;border-radius:9px}.search input{width:165px;background:transparent;border:0;outline:none;height:37px}.main{flex:1;display:flex;min-height:0;padding:8px;gap:10px}.side{width:256px;flex:none;background:#faf9f7;border-radius:11px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 12px #332b2010}.side.right{width:262px}.side.hidden{display:none}.sidehead{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line);font-weight:bold;font-size:16px}.iconbtn{background:transparent;border:0;padding:6px 9px;border-radius:7px}.sidebody{overflow:auto;padding:10px 8px;flex:1}.tocitem{display:flex;width:100%;align-items:center;justify-content:space-between;gap:8px;text-align:left;padding:12px 12px;border:0;background:transparent;border-radius:8px;color:#222}.tocitem:hover{background:#edf0e9}.tocitem.selected{background:#e2eade;color:#174b2c;font-weight:bold}.tocitem.sub{padding-left:29px;font-size:13px}.tocitem span:last-child{color:#7c8080}.tabs{display:flex;border-bottom:1px solid var(--line)}.tabs button{width:50%;padding:16px 0;background:none;border:0;border-bottom:3px solid transparent}.tabs button.active{border-bottom-color:var(--green);color:var(--green);font-weight:700}.add{background:#e7ede3;color:#135c32;border:0;border-radius:9px;padding:13px;margin:8px;width:calc(100% - 16px);text-align:left}.item{padding:13px 10px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:flex-start}.item .content{flex:1;min-width:0;cursor:pointer}.item .content strong{display:block;line-height:1.4;font-size:13px}.item .content small{display:block;color:#777;margin-top:6px}.item .remove{border:0;background:none;color:#777}.bookmark{font-size:21px;color:#dd8841}.reader{flex:1;min-width:0;min-height:0;display:flex;align-items:center;justify-content:center;overflow:auto;background:radial-gradient(ellipse at 50% 45%,#f9f7f3,#e9e5df);border-radius:10px;padding:12px}.bookwrap{position:relative;display:flex;align-items:stretch;justify-content:center;max-width:100%;max-height:100%;filter:drop-shadow(0 5px 5px #0003)}.book{display:flex;position:relative;transform-origin:center center;transition:transform .22s;box-shadow:0 8px 19px #403d3670;border:5px solid #dad7d1;border-radius:7px;overflow:hidden;background:#fff}.book:after{content:"";pointer-events:none;position:absolute;inset:0;background:linear-gradient(90deg,#0000000b 0%,transparent 5%,transparent 43%,#00000016 49%,#00000030 50%,#ffffff25 51%,transparent 57%,transparent 95%,#00000017 100%)}.page{position:relative;background:white;flex:none;overflow:hidden}.page img{width:100%;height:100%;display:block;object-fit:fill}.page .marker{position:absolute;z-index:2;transform:translate(-50%,-50%);border:1px solid #d9c19a;border-radius:50%;background:#fff8df;color:#88501d;width:27px;height:27px;box-shadow:0 2px 6px #0002}.page .marker.exercise{background:#e4f2e8;color:#0c6134;border-color:#b5d5bd}.page .marker:hover{transform:translate(-50%,-50%) scale(1.1)}/* A real page leaf: its front and back rotate around the book gutter. */
+.book{overflow:visible!important;isolation:isolate}.curl-canvas{position:absolute;inset:0;z-index:9;pointer-events:none;display:block}.book:after{z-index:5}.flip-leaf{position:absolute;top:0;height:100%;width:50%;z-index:8;transform-style:preserve-3d;pointer-events:none;will-change:transform}.flip-leaf.forward{left:50%;transform-origin:left center}.flip-leaf.backward{left:0;transform-origin:right center}.flip-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:#fff;overflow:hidden;box-shadow:inset 0 0 15px #0002}.flip-face img{display:block;width:100%;height:100%;object-fit:fill}.flip-back{transform:rotateY(180deg)}.flip-leaf.forward.animate{animation:flip-forward .85s cubic-bezier(.48,.08,.25,1) forwards}.flip-leaf.backward.animate{animation:flip-backward .85s cubic-bezier(.48,.08,.25,1) forwards}@keyframes flip-forward{0%{transform:rotateY(0deg)}100%{transform:rotateY(-180deg)}}@keyframes flip-backward{0%{transform:rotateY(0deg)}100%{transform:rotateY(180deg)}}@media(prefers-reduced-motion:reduce){.flip-leaf.forward.animate,.flip-leaf.backward.animate{animation-duration:.15s}}.bottom{height:60px;flex:none;display:flex;align-items:center;gap:10px;padding:0 20px;background:#faf9f7;margin:0 8px 8px;border-radius:10px}.bottom .sep{height:26px;width:1px;background:var(--line);margin:0 6px}.bottom .num{white-space:nowrap;min-width:100px;text-align:center;font-size:16px}.page-jump{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;font-size:15px}.page-jump input{width:66px!important;text-align:center;background:#fff;border:1px solid #c9d3cb!important;border-radius:6px;padding:6px 4px!important;font-size:15px;appearance:textfield;-moz-appearance:textfield}.page-jump input::-webkit-inner-spin-button,.page-jump input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}.page-jump input:focus{border-color:#147a46!important;outline:2px solid #147a4633}.page-jump input.invalid{border-color:#ba3737!important;background:#fff4f4}.bottom input[type=range]{accent-color:var(--green);width:155px}.bottom input[type=number]{width:56px;border:1px solid #ddd;padding:5px;border-radius:5px}.bottom select{padding:9px;border:0;background:#f2f0ec;border-radius:7px}.modalback{position:fixed;inset:0;background:#0c1818a8;z-index:10;display:flex;align-items:center;justify-content:center;padding:24px}.modal{background:#fff;border-radius:15px;width:min(600px,95vw);max-height:90vh;overflow:auto;box-shadow:0 25px 80px #0005}.modal.wide{width:min(1000px,95vw)}.modalhead{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--line)}.modalhead h2{font-size:20px;margin:4px 0}.modalbody{padding:24px}.modalfoot{padding:16px 24px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:10px}.primary{background:var(--green);border:0;color:#fff;padding:11px 17px;border-radius:8px}.secondary{background:#f0f1ee;border:0;padding:11px 17px;border-radius:8px}.field{width:100%;padding:10px;border:1px solid #d8d8d8;border-radius:8px}.hint{font-size:12px;color:#7d7d7d}.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#253d2e;color:#fff;padding:12px 18px;border-radius:9px;z-index:20;box-shadow:0 4px 15px #0003}.result{padding:10px 13px;border-radius:8px;background:#edf4ec;margin-top:12px}.mobiletab{display:none}@media(max-width:1200px){.side{width:210px}.side.right{width:210px}.brand{margin-right:4px}.top{padding:0 10px;gap:3px}.top button{padding:9px 7px}.search input{width:100px}}@media(max-width:900px){.topnav button .txt,.top .hide-sm{display:none}.side{position:absolute;top:69px;bottom:70px;z-index:5;box-shadow:0 7px 30px #0003}.side.right{right:8px}.reader{padding:4px}.bottom{gap:1px;padding:0 7px}.bottom input[type=range]{width:80px}.bottom .num{min-width:65px;font-size:12px}.bottom .hide-sm{display:none}}
+
+/* StPageFlip: static book frame and shadow; only page leaves are animated. */
+/* Cover is a single right-hand page; there is no left leaf or visible central gutter. */
+.bookwrap.at-cover::after{display:none!important}
+
+.bookwrap{filter:none!important;overflow:visible;position:relative}
+.bookwrap::before{content:"";position:absolute;inset:0;box-shadow:0 16px 26px rgba(48,39,29,.33),0 4px 9px rgba(48,39,29,.19);border-radius:4px;pointer-events:none;z-index:0}
+/* Permanent spine shading: anchored to the book frame, never to an animated leaf. */
+.bookwrap::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:36px;transform:translateX(-50%);background:linear-gradient(90deg,transparent 0%,rgba(39,30,22,.055) 22%,rgba(25,20,15,.20) 46%,rgba(25,20,15,.22) 50%,rgba(255,255,255,.08) 58%,transparent 100%);pointer-events:none;z-index:6}
+.bookwrap:has(.stf__wrapper.--portrait)::after{display:none}
+
+.book{display:block!important;min-width:0!important;border:0!important;box-shadow:none!important;border-radius:0!important;overflow:visible!important;isolation:auto!important;background:transparent!important;transition:none!important;transform:none!important;filter:none!important}
+.book::after{display:none!important}
+.flip-page{background:#fff;overflow:hidden;position:relative}
+.flip-page img{width:100%;height:100%;object-fit:fill;display:block;user-select:none;-webkit-user-drag:none}
+.flip-page .markers{position:absolute;inset:0;pointer-events:none}
+.flip-page .marker{pointer-events:auto;position:absolute;z-index:3;transform:translate(-50%,-50%);border:1px solid #d9c19a;border-radius:50%;background:#fff8df;color:#88501d;width:27px;height:27px;box-shadow:0 2px 6px #0002}.flip-page .marker.exercise{background:#e4f2e8;color:#0c6134;border-color:#b5d5bd}
+.library-error{padding:30px;background:#fff;border:1px solid #c88;max-width:440px;line-height:1.6}
+
+/* v1.8: keep the page-turn viewport fixed and the paper fully opaque. */
+.reader{overflow:hidden!important;scrollbar-width:none!important}
+.reader::-webkit-scrollbar{display:none!important}
+.bookwrap{flex:none!important;overflow:visible!important;transform:none!important}
+.bookwrap::before{z-index:0!important}
+.bookwrap::after{z-index:3!important}
+.book{overflow:visible!important}
+.flip-page{background-color:#fff;opacity:1}
+.flip-page{backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.flip-page img{opacity:1!important;mix-blend-mode:normal!important;filter:none!important;background:#fff!important}
+.stf__item .flip-page{background:#fff!important}
+
+/* v1.11: gutter shading is painted ON the paper, not above moving leaves. */
+.bookwrap::after{display:none!important}
+.bookwrap::before{z-index:0!important}
+.bookwrap>.book{position:relative!important;z-index:1!important}
+.flip-page::after{content:"";position:absolute;top:0;bottom:0;width:38px;pointer-events:none;z-index:2;opacity:1}
+.flip-page.gutter-left::after{left:0;background:linear-gradient(90deg,rgba(38,31,25,.24) 0%,rgba(38,31,25,.11) 15%,rgba(38,31,25,.035) 55%,transparent 100%)}
+.flip-page.gutter-right::after{right:0;background:linear-gradient(270deg,rgba(38,31,25,.24) 0%,rgba(38,31,25,.11) 15%,rgba(38,31,25,.035) 55%,transparent 100%)}
+/* v1.12: gutter belongs to the fixed spread, NOT to the page edges. */
+.flip-page::after,.flip-page.gutter-left::after,.flip-page.gutter-right::after{content:none!important;display:none!important}
+.bookwrap::after{display:block!important;content:"";position:absolute;top:0;bottom:0;left:50%;width:44px;transform:translateX(-50%);pointer-events:none;z-index:5!important;background:linear-gradient(90deg,transparent 0%,rgba(35,28,22,.025) 12%,rgba(35,28,22,.09) 32%,rgba(35,28,22,.20) 47%,rgba(35,28,22,.23) 50%,rgba(35,28,22,.10) 56%,rgba(255,255,255,.10) 76%,transparent 100%)}
+/* While a leaf crosses the gutter, the engine draws the moving shadow. */
+.bookwrap.is-flipping::after{opacity:0}
+.bookwrap:has(.stf__wrapper.--portrait)::after{display:none!important}
+
+/* The actual page area may exceed the viewport when zoomed.
+   Clamping the wrapper to 100% previously disabled all panning. */
+#bookwrap{max-width:none!important;max-height:none!important}
+/* v1.20: zoomed spread panning, independent of page-flip gestures. */
+#reader{position:relative;overflow:hidden!important}
+#bookwrap{transform:translate3d(var(--pan-x,0px),var(--pan-y,0px),0)!important;will-change:transform}
+#panSurface{position:absolute;inset:0;z-index:7;display:none;cursor:grab;touch-action:none;background:transparent;user-select:none;-webkit-user-select:none}
+#reader.pan-enabled #panSurface{display:block}
+#reader.pan-enabled #panSurface:active{cursor:grabbing}
+/* Keep the drag hit-area inside the reading viewport. */
+#reader{position:relative!important}
+#reader.pan-enabled{cursor:grab}
+#reader.pan-enabled #panSurface{inset:0;pointer-events:auto}
+#bookwrap{transition:none!important}
+
+/* v1.22: page navigation lives outside the paper. */
+.reader{position:relative!important}
+.edge-turn{position:absolute;top:50%;transform:translateY(-50%);z-index:30;border:0;background:transparent!important;box-shadow:none!important;color:#4c504f;font-size:76px;line-height:1;cursor:pointer;padding:14px 7px;opacity:.66;transition:opacity .15s;user-select:none}
+.edge-turn:hover,.edge-turn:focus-visible{opacity:1;color:#0c6134;outline-offset:3px}
+.edge-turn.left{left:5px}.edge-turn.right{right:5px}
+.edge-turn:disabled{opacity:.18;cursor:default}
+
+/* v1.26: spine shadow is clipped to the visible reader, not the zoomed
+   book host (which StPageFlip can reposition and clip independently). */
+#bookwrap::after{display:none!important}
+#reader::after{content:"";position:absolute;left:var(--spine-x,50%);top:var(--spine-top,0px);height:var(--spine-height,0px);width:44px;transform:translateX(-50%);pointer-events:none;z-index:6;background:linear-gradient(90deg,transparent 0%,rgba(35,28,22,.025) 12%,rgba(35,28,22,.09) 32%,rgba(35,28,22,.20) 47%,rgba(35,28,22,.23) 50%,rgba(35,28,22,.10) 56%,rgba(255,255,255,.10) 76%,transparent 100%);opacity:1}
+#reader.spine-hidden::after{opacity:0}
+/* Visual bookmarks: tabs are fixed to the reading viewport, never to the zoomed paper. */
+#bookmarkRail{position:absolute;right:31px;top:12%;bottom:12%;z-index:35;display:flex;flex-direction:column;align-items:flex-end;gap:5px;max-height:76%;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;padding:3px 0 3px 4px;pointer-events:none}
+.bookmark-tab{pointer-events:auto;flex:none;display:flex;align-items:center;justify-content:center;min-width:34px;height:27px;padding:0 6px;border:0;border-radius:5px 0 0 5px;background:#e18a41;color:#fff;font-weight:700;font-size:11px;box-shadow:0 1px 5px #0004;cursor:pointer;opacity:.87;transition:transform .12s,opacity .12s}
+.bookmark-tab:hover,.bookmark-tab:focus-visible{transform:translateX(-5px);opacity:1}
+.bookmark-tab.is-current{background:#0c6134;opacity:1}
+.flip-page .page-bookmark-ribbon,.static-fallback-page .page-bookmark-ribbon{position:absolute;right:9px;top:0;z-index:8;pointer-events:auto;width:23px;height:35px;border:0;background:#e18a41;color:white;box-shadow:0 2px 4px #0003;clip-path:polygon(0 0,100% 0,100% 100%,50% 76%,0 100%);cursor:pointer;font-size:14px;padding:0 0 8px}
+.flip-page .page-bookmark-ribbon:hover,.static-fallback-page .page-bookmark-ribbon:hover{background:#b76524}
+@media(max-width:750px){#bookmarkRail{right:24px}.bookmark-tab{min-width:28px;height:24px;font-size:10px}}
+
+/* Notes: page-relative translucent highlights, independent of zoom and panning. */
+.note-highlight-layer{position:absolute;inset:0;pointer-events:none;z-index:4;overflow:hidden}
+/* Blend the entire highlight layer against the underlying printed page, not each overlapping stroke against other strokes. */
+.note-highlight-layer{mix-blend-mode:multiply;isolation:auto}
+.note-highlight{mix-blend-mode:normal!important}
+.note-highlight{position:absolute;pointer-events:auto;cursor:pointer;border-radius:2px;mix-blend-mode:multiply}
+.note-highlight:hover{outline:1px solid #17683b}
+#annotationSurface{position:absolute;inset:0;z-index:40;display:none;touch-action:none;cursor:crosshair;user-select:none}
+#reader.annotation-active #annotationSurface{display:block}
+#annotationToolbar{position:absolute;z-index:41;top:10px;left:50%;transform:translateX(-50%);background:#fff;box-shadow:0 3px 14px #0003;border:1px solid #ddd;border-radius:9px;padding:8px;display:none;align-items:center;gap:8px;white-space:nowrap;font-size:12px}
+#reader.annotation-active #annotationToolbar{display:flex}
+#annotationToolbar button{padding:5px 8px;border:1px solid #ddd;background:#fff;border-radius:5px;cursor:pointer}
+#annotationToolbar button.chosen{border-color:#146b3c;background:#e6f1e9;color:#145a36}
+#annotationToolbar .note-color{height:22px;width:22px;border-radius:50%;padding:0}
+#annotationToolbar .note-color.chosen{outline:2px solid #16653b;outline-offset:2px}
+.note-draft{position:absolute;pointer-events:none;z-index:39;border-radius:2px;mix-blend-mode:multiply}
+
+/* Audio markers: placed just outside the blue rule box, never over its text. */
+.audio-rule-button{position:absolute;left:92.5%;top:43.5%;transform:translate(-50%,-50%);width:7.5%;aspect-ratio:1;min-width:22px;max-width:43px;display:flex;align-items:center;justify-content:center;border:2px solid #0c6134;border-radius:50%;background:#fff;color:#0c6134;box-shadow:0 2px 7px #0003;cursor:pointer;z-index:12;padding:3px;pointer-events:auto}
+.audio-rule-button:hover,.audio-rule-button:focus-visible{background:#e5f4e9;outline:2px solid #0c6134;outline-offset:2px}
+.audio-rule-button svg{width:80%;height:80%;display:block}
+/* Two audio controls on printed page 32, in the blank right margin. */
+.audio-32-button{position:absolute;left:89%;transform:translate(-50%,-50%);width:7%;aspect-ratio:1;min-width:22px;max-width:40px;border:2px solid #0c6134;border-radius:50%;background:#fff;color:#0c6134;box-shadow:0 2px 7px #0003;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:12;padding:4px;pointer-events:auto}
+.audio-32-button:hover,.audio-32-button:focus-visible{background:#e5f4e9;outline:2px solid #0c6134;outline-offset:2px}
+.audio-32-button svg{width:80%;height:80%;display:block}
+.audio-32-intro{top:46%}.audio-32-song{top:54%}
+.audio-player-native{display:block;width:100%;margin:16px 0 12px;accent-color:#0c6134}
+.audio-speed{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:12px}
+.audio-speed select{padding:7px;border:1px solid #d5dcd5;border-radius:6px;background:white}
+</style></head><body>
+<header class="top"><div class="brand"><span class="flower">✺</span><strong>Ногай тил</strong><small>8 класс</small></div><nav class="topnav"><button class="active" id="readTab">▣ <span class="txt">Читать</span></button><button id="tocToggle">☷ <span class="txt">Оглавление</span></button><button id="bookmarkToggle">♧ <span class="txt">Закладки</span></button><button id="notesToggle">▤ <span class="txt">Заметки</span></button></nav><div class="grow"></div><div class="search">⌕ <input id="searchInput" placeholder="Поиск по учебнику" aria-label="Поиск по учебнику"><button id="searchGo" aria-label="Искать">↵</button></div><button id="settingsBtn">⚙ <span class="hide-sm">Настройки</span></button><button id="fullscreenBtn">⛶ <span class="hide-sm">Полный экран</span></button></header>
+<div class="main"><aside class="side" id="leftSide"><div class="sidehead">Оглавление <button class="iconbtn" id="closeLeft">❮</button></div><div class="sidebody" id="toc"></div></aside><main class="reader" id="reader"><button type="button" class="edge-turn left" id="edgePrev" title="Предыдущий разворот" aria-label="Предыдущий разворот">&#8249;</button><button type="button" class="edge-turn right" id="edgeNext" title="Следующий разворот" aria-label="Следующий разворот">&#8250;</button><div id="bookmarkRail" aria-label="Быстрый переход по закладкам"></div><div class="bookwrap" id="bookwrap"><div class="book" id="book"></div></div><div id="annotationSurface" aria-label="Выделите область на странице"></div><div id="annotationToolbar"><strong>Выделение</strong><button id="noteMarkerTool" class="chosen" type="button">Маркер</button><button id="noteAreaTool" type="button">Область</button><button type="button" class="note-color chosen" data-note-color="yellow" style="background:#f4d65d" title="Жёлтый"></button><button type="button" class="note-color" data-note-color="green" style="background:#a2d8ab" title="Зелёный"></button><button type="button" class="note-color" data-note-color="pink" style="background:#efb3c4" title="Розовый"></button><button type="button" class="note-color" data-note-color="blue" style="background:#a8c9f2" title="Голубой"></button><button id="noteCancelTool" type="button">Отмена ✕</button></div><div id="panSurface" title="Перетащите увеличенную книгу мышью" aria-label="Перемещение увеличенной книги"></div></main><aside class="side right" id="rightSide"><div class="tabs"><button class="active" id="tabBookmarks">Закладки</button><button id="tabNotes">Заметки</button></div><div class="sidebody" id="rightContent"></div></aside></div>
+<footer class="bottom"><button id="first" title="В начало">Ⅰ◀</button><button id="prev" title="Предыдущий разворот">❮</button><span class="page-jump"><input id="pageInput" type="number" min="1" max="154" value="1" aria-label="Перейти к странице" title="Введите номер страницы и нажмите Enter"><span id="pageRange">/ 154</span></span><button id="next" title="Следующий разворот">❯</button><button id="last" title="В конец">▶Ⅰ</button><div class="grow"></div><select id="viewMode"><option value="spread">▣ Разворот</option><option value="single">▯ Одна страница</option></select><span class="sep"></span><span>⌕</span><input id="zoom" type="range" min="70" max="180" step="5" value="100" aria-label="Масштаб"><span id="zoomLabel">100%</span><span class="sep"></span><button id="fitBtn">По ширине</button><button id="moreBtn" title="Дополнительно">⋯</button></footer>
+<div id="modalHost"></div><script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script><script>
+const N=154;const $=id=>document.getElementById(id);const store=(key,val)=>{try{localStorage.setItem('nogay_'+key,JSON.stringify(val))}catch(e){console.warn('Storage unavailable',e)}};const load=(key,fallback)=>{try{return JSON.parse(localStorage.getItem('nogay_'+key))??fallback}catch{return fallback}};
+let flipBusy=false;let current=(()=>{const saved=Number(load('page',1));return Number.isInteger(saved)&&saved>=1&&saved<=N?saved:1})(),zoom=100,mode='spread',rightTab='bookmarks',notes=load('notes',[]),bookmarks=load('bookmarks',[]),searchText=null,annotationMode=false,activeModal=null;
+const sections=[["§ 1. Фонетика эм графика",5,1],["Синтаксис эм пунктуация",13,0],["Соьз биригуьви эм йыйма",13,0],["§ 2. Соьз биригуьви эм онынъ маьнеси",13,1],["§ 3. Йыймадынъ туьзилиси эм онынъ грамматикалык маьнеси",17,1],["§ 4. Соьз биригуьвинде эм йыймада соьзлердинъ байланысы",20,1],["§ 5. Логикалык ургы",25,1],["Кабатсыз йыйма",28,0],["§ 6. Эки бас муьшели болган йыймалар эм бир бас муьшели йыймалар. Узын эм  кыска йыймалар",28,1],["Бас муьшелердинъ экеви де болган кабатсыз йыймалар. йыймадынъ бас муьшелери",35,0],["§ 7. Подлежащее",35,1],["§ 8. Кабатсыз сказуемое",38,1],["§ 9. Кабатлы сказуемое",40,1],["§ 10. Подлежащее мен сказуемоединъ арасында сызык",43,1],["Йыймадынъ иершен муьшелери",47,0],["§ 11. Толтыргыш",47,1],["§ 12. Айыргыш",50,1],["§ 13. Уьстев соьз",54,1],["§ 14. Аьллер",56,1],["§ 15. Орын аьли",58,1],["§ 16. Заман аьли",60,1],["§ 17. Себеп эм мырат аьли",63,1],["§ 18. Кеп аьли",66,1],["§ 19. Йыйма муьшелерининъ орын йорыгы",69,1],["Йыймадынъ айырымланган муьшелери",73,0],["§ 20. Йыймадынъ айырымланган муьшелери акында анълатув",73,1],["§ 21. Айырымланган аьллер",75,1],["§ 22. Айырымланган уьстев соьзлер",77,1],["Бас муьшелердинъ бири болган кабатсыз йыймалар",84,0],["§ 23. Подлежащееси болмаган йыймалар",84,1],["§ 24. Атав йыйма",87,1],["§ 25. Толы эм толмаган йыйма",89,1],["Бир тукымлы мушели йыймалар",93,0],["§ 26. Бир тукымлы муьшелер акында анълатув",93,1],["§ 27. Бир тукымлы муьшелердинъ арасында тиркевишлер эм байлавышлар",98,1],["§ 28. Йыймадынъ бир тукымлы муьшелери янында токтав белгилери",101,1],["§ 29. Бир тукымлы муьшелер янында ортакластырувшы соьзлер эм олардынъ арасында токтав белгилери",105,1],["Йыйма муьшелери мен грамматика яктан байланмаган соьзлер",108,0],["§ 30. Уьндев",108,1],["§ 31. Уьндевде токтав белгилери",110,1],["§ 32. Кирис соьз",113,1],["§ 33. Йыймадынъ басында «аьше» эм «йок» соьзлер",115,1],["§ 34. Йыймада уьн соьзлер",117,1],["Тувра эм кыя соьз",120,0],["§ 35. Тувра эм кыя соьз акында анълатув",120,1],["§ 36. Тувра соьзде токтав белгилери",123,1],["§ 37. Тувра соьзди кыя соьзге айландырув",127,1],["§ 38. Диалог",129,1],["Косымталар",144,0],["Йыймаларды синтаксислик айырув",144,1],["Синтаксислик терминлердинъ кыска соьзлиги",147,1],["Ногайша-орысша лингвистикалык соьзлиги",149,1]];
+function safe(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function imgSrc(n){return 'pages/'+String(n).padStart(3,'0')+'.webp'}
+let flipEngine=null, flipState='read', engineMode=null, engineZoom=null;let enginePageWidth=0,enginePageHeight=0;
+function canonical(n){n=Math.max(1,Math.min(N,Number(n)||1));return mode==='spread'&&n>1&&n%2===1?n-1:n}
+function setPage(n){if($('reader').classList.contains('annotation-active'))stopAnnotation();current=canonical(n);store('page',current);if(flipEngine){flipEngine.turnToPage(current-1)}else render(true);updateLabels();}
+function turnPage(direction){if(!flipEngine){setPage(current+direction*(mode==='spread'?2:1));return;}if(flipState==='flipping')return;if(direction>0)flipEngine.flipNext('bottom');else flipEngine.flipPrev('bottom')}
+// Pan is enabled only above 100% zoom. The overlay intercepts dragging so
+// StPageFlip does not mistake a move of the whole book for a page turn.
+let panX=0,panY=0,panPointer=null;
+function panLimits(){
+ // The paper must keep covering the reading viewport while being dragged.
+ // Book dimensions are the actual rendered page dimensions, not a CSS
+ // max-width-constrained wrapper (which previously made both limits zero).
+ const r=$('reader');
+ const paperWidth=enginePageWidth*(mode==='spread'?2:1);
+ const paperHeight=enginePageHeight;
+ return {
+  x:Math.max(0,(paperWidth-r.clientWidth)/2),
+  y:Math.max(0,(paperHeight-r.clientHeight)/2)
+ };
+}
+function updateSpinePosition(){
+ const reader=$('reader'),wrap=$('bookwrap');
+ if(!reader||!wrap)return;
+ const r=reader.getBoundingClientRect(),b=wrap.getBoundingClientRect();
+ const top=zoom>100?0:Math.max(0,b.top-r.top),bottom=zoom>100?r.height:Math.min(r.height,b.bottom-r.top);
+ reader.style.setProperty('--spine-x',(b.left+b.width/2-r.left)+'px');
+ reader.style.setProperty('--spine-top',top+'px');
+ reader.style.setProperty('--spine-height',Math.max(0,bottom-top)+'px');
+ reader.classList.toggle('spine-hidden',wrap.classList.contains('is-flipping')||wrap.classList.contains('at-cover')||mode!=='spread');
+}
+function updatePan(){
+ const enabled=zoom>100;
+ $('reader').classList.toggle('pan-enabled',enabled);
+ if(!enabled){panX=0;panY=0;}
+ const lim=panLimits();
+ panX=Math.max(-lim.x,Math.min(lim.x,panX));
+ panY=Math.max(-lim.y,Math.min(lim.y,panY));
+ $('bookwrap').style.setProperty('--pan-x',panX+'px');
+ $('bookwrap').style.setProperty('--pan-y',panY+'px');
+ requestAnimationFrame(updateSpinePosition);
+}
+window.addEventListener('resize',()=>requestAnimationFrame(updateSpinePosition));
+(function initPan(){
+ const surface=$('panSurface');
+ surface.addEventListener('pointerdown',e=>{
+  if(e.button!==0||zoom<=100)return;
+  e.preventDefault();
+  panPointer={id:e.pointerId,x:e.clientX,y:e.clientY,px:panX,py:panY};
+  surface.style.cursor='grabbing';
+  surface.setPointerCapture(e.pointerId);
+ });
+ surface.addEventListener('pointermove',e=>{
+  if(!panPointer||panPointer.id!==e.pointerId)return;
+  panX=panPointer.px+e.clientX-panPointer.x;
+  panY=panPointer.py+e.clientY-panPointer.y;
+  updatePan();
+ });
+ const end=e=>{if(panPointer&&panPointer.id===e.pointerId){panPointer=null;surface.style.cursor='grab';}};
+ surface.addEventListener('pointerup',end);
+ surface.addEventListener('pointercancel',end);
+ surface.addEventListener('lostpointercapture',end);
+})();
+new MutationObserver(()=>requestAnimationFrame(updateSpinePosition)).observe($('bookwrap'),{attributes:true,attributeFilter:['class']});
+function updateLabels(){renderBookmarkRail();const ep=$('edgePrev'),en=$('edgeNext');if(ep)ep.disabled=current<=1;if(en)en.disabled=current>=N-(mode==='spread'?1:0);const wrap=$('bookwrap');if(wrap)wrap.classList.toggle('at-cover',mode==='spread'&&current===1);const second=mode==='spread'&&current>1?Math.min(current+1,N):0;if(document.activeElement!==$('pageInput'))$('pageInput').value=current;$('pageRange').textContent=second?`— ${second} / ${N}`:`/ ${N}`;$('zoomLabel').textContent=zoom+'%';$('zoom').value=zoom;document.querySelectorAll('.tocitem').forEach(el=>el.classList.toggle('selected',Number(el.dataset.page)===current));}
+function render(force=false){
+ const reader=$('reader'),book=$('book');
+ const libraryReady=!!window.St?.PageFlip;
+ const spread=mode==='spread', availableW=Math.max(180,reader.clientWidth-40),availableH=Math.max(180,reader.clientHeight-40),ratio=481.89/609.45;
+ const h=Math.min(availableH,availableW/(ratio*(spread?2:1)))*zoom/100,w=h*ratio;
+ const wPx=Math.max(100,Math.round(w)),hPx=Math.max(130,Math.round(h));
+ if(flipEngine&&engineMode===mode&&engineZoom===zoom&&enginePageWidth===wPx&&enginePageHeight===hPx){updatePan();updateLabels();return;}
+ if(flipEngine){if(window.nogayDetachDrag){window.nogayDetachDrag();window.nogayDetachDrag=null;}try{flipEngine.destroy()}catch(err){console.warn('Flip cleanup:',err)}flipEngine=null;}
+ // Some StPageFlip builds remove the host during destroy(). Reattach it before rebuilding.
+ if(!book.isConnected || book.parentElement!==$('bookwrap'))$('bookwrap').appendChild(book);
+ book.innerHTML='';book.style.width=(wPx*(spread?2:1))+'px';book.style.height=hPx+'px';book.style.flexShrink='0';const wrap=$('bookwrap');wrap.style.width=book.style.width;wrap.style.height=book.style.height;updatePan();
+ if(!libraryReady){showStaticFallback(book,wPx,hPx);updatePan();updateLabels();return;}
+ const pages=[];
+ for(let n=1;n<=N;n++){
+  const el=document.createElement('div');el.className='flip-page '+(n%2===0?'gutter-right':'gutter-left');el.dataset.page=n;
+  const img=document.createElement('img');img.src=imgSrc(n);img.alt='Страница '+n;img.loading='eager';img.draggable=false;el.appendChild(img);
+  const markers=document.createElement('div');markers.className='markers';el.appendChild(markers);renderMarkers(el,n);pages.push(el);book.appendChild(el);
+ }
+ flipEngine=new St.PageFlip(book,{disableFlipByClick:true,width:wPx,height:hPx,size:'fixed',minWidth:wPx,minHeight:hPx,maxWidth:wPx,maxHeight:hPx,showCover:spread,drawShadow:true,maxShadowOpacity:0.24,flippingTime:720,usePortrait:!spread,startPage:current-1,autoSize:false,mobileScrollSupport:false,clickEventForward:true,disableFlipByClick:true,useMouseEvents:false});
+ flipEngine.on('flip',e=>{current=canonical(e.data+1);store('page',current);updateLabels()});
+ // Track a hand-dragged leaf by distance, not by the automatic flip timer.
+ // A complete page turn travels approximately one page width across the gutter.
+ let gutterHideTimer=null;
+ let dragStartX=null, dragActive=false, dragPassedHalf=false, dragFromRight=false;
+ const resetGutter=()=>{wrap.classList.remove('is-flipping');};
+ const dragDown=e=>{
+  if(e.button!==undefined&&e.button!==0)return;
+  if(!book.contains(e.target))return;
+  dragStartX=e.clientX;dragActive=true;dragPassedHalf=false;
+  dragFromRight=e.clientX>=window.innerWidth/2;
+ };
+ const dragMove=e=>{
+  if(!dragActive||dragStartX===null)return;
+  // For manual dragging the trigger is the viewport's vertical midpoint,
+  // not half the leaf width or elapsed time. Crossing back restores shade.
+  const midpoint=window.innerWidth/2;
+  dragPassedHalf=dragFromRight?e.clientX<=midpoint:e.clientX>=midpoint;
+  if(flipState==='user_fold')wrap.classList.toggle('is-flipping',dragPassedHalf);
+ };
+ const dragEnd=()=>{
+  if(!dragActive)return;
+  dragActive=false;dragStartX=null;
+  // The engine may continue the turn after release. Keep the shadow hidden
+  // until it reports that the animation has finished.
+  // Do not force the shade back while StPageFlip is finishing a turn.
+  if(flipState==='read')resetGutter();
+ };
+ book.addEventListener('pointerdown',dragDown);
+ document.addEventListener('pointermove',dragMove);
+ document.addEventListener('pointerup',dragEnd);
+ document.addEventListener('pointercancel',dragEnd);
+ // Remove document listeners when this engine is replaced on zoom/mode change.
+ window.nogayDetachDrag=()=>{
+  book.removeEventListener('pointerdown',dragDown);
+  document.removeEventListener('pointermove',dragMove);
+  document.removeEventListener('pointerup',dragEnd);
+  document.removeEventListener('pointercancel',dragEnd);
+  if(gutterHideTimer!==null)clearTimeout(gutterHideTimer);
+ };
+ flipEngine.on('changeState',e=>{
+  flipState=e.data;
+  if(gutterHideTimer!==null){clearTimeout(gutterHideTimer);gutterHideTimer=null;}
+  if(e.data==='flipping'){
+   // A mouse release can initiate the remainder of a manual turn.
+   // Preserve the leaf's current shadow state; use 360 ms only for clicks.
+   if(dragActive||dragPassedHalf){
+    wrap.classList.toggle('is-flipping',dragPassedHalf);
+   }else{
+    resetGutter();
+    gutterHideTimer=setTimeout(()=>{gutterHideTimer=null;if(flipState==='flipping')wrap.classList.add('is-flipping');},360);
+   }
+  }else if(e.data==='user_fold'){
+   wrap.classList.toggle('is-flipping',dragPassedHalf);
+  }else{
+   resetGutter();dragPassedHalf=false;
+  }
+ });
+ try{flipEngine.loadFromHTML(pages)}catch(err){console.error('StPageFlip initialization failed:',err);flipEngine=null;showStaticFallback(book,wPx,hPx);updateLabels();return;}
+ engineMode=mode;engineZoom=zoom;enginePageWidth=wPx;enginePageHeight=hPx;updatePan();updateLabels();
+ // Ensure an unexpected library layout failure never leaves an empty reading area.
+ const builtBook=book;setTimeout(()=>{if(book!==builtBook||!book.isConnected||!flipEngine)return;const visible=book.querySelector('.stf__wrapper');const images=book.querySelectorAll('.flip-page img');if(!visible||!images.length){console.warn('PageFlip produced no pages; using static view');try{flipEngine.destroy()}catch(e){}flipEngine=null;if(!book.isConnected)wrap.appendChild(book);showStaticFallback(book,wPx,hPx);updateLabels();}},900);
+}
+function showStaticFallback(book,w,h){
+ book.innerHTML='';book.style.display='flex';book.style.width=(w*(mode==='spread'?2:1))+'px';book.style.height=h+'px';
+ const nums=mode==='spread'?(current===1?[null,1]:[current,current+1]):[current];
+ nums.forEach(n=>{const pg=document.createElement('div');pg.className='static-fallback-page';pg.style.cssText='position:relative;width:'+w+'px;height:'+h+'px;background:white;overflow:hidden;flex:none';if(n&&n<=N){const img=document.createElement('img');img.src=imgSrc(n);img.style.cssText='width:100%;height:100%;display:block';pg.appendChild(img);if(n===32){addAudio32Buttons(pg)}if(n===54){const btn=document.createElement('button');btn.type='button';btn.className='audio-rule-button';btn.title='Прослушать правило';btn.textContent='♫';btn.onclick=e=>{e.stopPropagation();openRuleAudio54()};pg.appendChild(btn)}if(bookmarks.includes(n)){const ribbon=document.createElement('button');ribbon.type='button';ribbon.className='page-bookmark-ribbon';ribbon.textContent='★';ribbon.title='Удалить закладку со страницы '+n;ribbon.onclick=e=>{e.stopPropagation();removeBookmark(n)};pg.appendChild(ribbon)}}book.appendChild(pg)});
+ const warning=document.createElement('div');warning.style.cssText='position:absolute;bottom:8px;left:8px;background:#fff8dc;padding:6px 9px;border-radius:5px;font-size:11px;z-index:10';warning.textContent='Режим просмотра: анимация недоступна';book.appendChild(warning);
+}
+function renderMarkers(el,page){const box=el.querySelector('.markers');box.innerHTML='';if(bookmarks.includes(page)){const ribbon=document.createElement('button');ribbon.type='button';ribbon.className='page-bookmark-ribbon';ribbon.textContent='★';ribbon.title='Закладка на странице '+page+' — нажмите, чтобы удалить';ribbon.setAttribute('aria-label','Удалить закладку со страницы '+page);ribbon.onclick=e=>{e.stopPropagation();removeBookmark(page)};box.appendChild(ribbon)}el.querySelectorAll('.note-highlight-layer').forEach(x=>x.remove());const highlightLayer=document.createElement('div');highlightLayer.className='note-highlight-layer';el.appendChild(highlightLayer);notes.filter(n=>n.page===page&&Array.isArray(n.rects)).forEach(n=>{n.rects.forEach(r=>{const h=document.createElement('div');h.className='note-highlight';h.style.cssText=`left:${r.x}%;top:${r.y}%;width:${r.w}%;height:${r.h}%;background:${noteColor(n.color)}`;h.title=n.text;h.onclick=e=>{e.stopPropagation();editNote(n.id)};highlightLayer.appendChild(h)})});notes.filter(n=>n.page===page&&n.x!=null&&!n.rects).forEach(n=>{const b=document.createElement('button');b.className='marker';b.style.left=n.x+'%';b.style.top=n.y+'%';b.textContent='✎';b.title='Заметка: '+n.text;b.onclick=()=>editNote(n.id);box.appendChild(b)});if(page===32){addAudio32Buttons(box)}if(page===54){const b=document.createElement('button');b.type='button';b.className='audio-rule-button';b.title='Прослушать аудио к правилу на странице 54';b.setAttribute('aria-label','Прослушать аудио к правилу на странице 54');b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-3a9 9 0 0 1 18 0v3"/><rect x="2" y="13" width="4" height="8" rx="2"/><rect x="18" y="13" width="4" height="8" rx="2"/></svg>';b.onclick=e=>{e.stopPropagation();openRuleAudio54()};box.appendChild(b)}}
+function addAudio32Buttons(parent){
+ const defs=[
+  {kind:'intro',label:'Прослушать вступление «Ногай шай»',open:()=>openAudio32('intro')},
+  {kind:'song',label:'Прослушать песню «Ногайский чай»',open:()=>openAudio32('song')}
+ ];
+ defs.forEach(d=>{
+  const b=document.createElement('button');b.type='button';b.className='audio-32-button audio-32-'+d.kind;
+  b.title=d.label;b.setAttribute('aria-label',d.label);
+  b.innerHTML=d.kind==='intro'?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-3a9 9 0 0 1 18 0v3"/><rect x="2" y="13" width="4" height="8" rx="2"/><rect x="18" y="13" width="4" height="8" rx="2"/></svg>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>';
+  b.onclick=e=>{e.stopPropagation();d.open()};parent.appendChild(b)
+ });
+}
+function openAudio32(kind){
+ const intro=kind==='intro';
+ const file=intro?'audio/nogay_shay_intro_32.m4a':'audio/nogayskiy_chay_song_32.mp3';
+ const title=intro?'Вступление к песне «Ногай шай»':'Песня «Ногайский чай»';
+ const body='<p class="hint">Страница 32 · '+(intro?'вступление':'песня')+'</p><audio id="audio32Player" class="audio-player-native" controls preload="metadata"><source src="'+file+'" type="'+(intro?'audio/mp4':'audio/mpeg')+'">Ваш браузер не поддерживает воспроизведение аудио.</audio><div class="audio-speed"><label for="audio32Speed">Скорость воспроизведения</label><select id="audio32Speed"><option value="0.75">0,75×</option><option value="1" selected>1×</option><option value="1.25">1,25×</option><option value="1.5">1,5×</option></select></div>';
+ openModal(title,body,[{label:'Закрыть',close:true}]);
+ $('audio32Speed').onchange=e=>{$('audio32Player').playbackRate=Number(e.target.value)};
+}
+function renderTOC(){const toc=$('toc');toc.innerHTML='';sections.forEach(([name,p,sub])=>{const b=document.createElement('button');b.className='tocitem'+(sub?' sub':'');b.dataset.page=p;b.innerHTML=`<span>${safe(name)}</span><span>${p}</span>`;b.onclick=()=>setPage(p);toc.appendChild(b)});}
+function renderBookmarkRail(){const rail=$('bookmarkRail');if(!rail)return;rail.innerHTML='';const pages=[...new Set(bookmarks.filter(p=>Number.isInteger(p)&&p>=1&&p<=N))].sort((a,b)=>a-b);rail.style.display=pages.length?'flex':'none';pages.forEach(p=>{const tab=document.createElement('button');tab.type='button';tab.className='bookmark-tab'+((mode==='spread'?(current===1?p===1:p===current||p===current+1):p===current)?' is-current':'');tab.textContent=p;tab.title='Перейти к закладке: страница '+p;tab.setAttribute('aria-label','Перейти к закладке на странице '+p);tab.onclick=e=>{e.stopPropagation();setPage(p)};rail.appendChild(tab)})}
+function removeBookmark(p){bookmarks=bookmarks.filter(x=>x!==p);store('bookmarks',bookmarks);renderRight();renderBookmarkRail();renderMarkersAll()}
+function renderRight(){const root=$('rightContent');$('tabBookmarks').classList.toggle('active',rightTab==='bookmarks');$('tabNotes').classList.toggle('active',rightTab==='notes');root.innerHTML='';const add=document.createElement('button');add.className='add';add.textContent=rightTab==='bookmarks'?'＋  Добавить закладку':'＋  Добавить заметку';add.onclick=()=>rightTab==='bookmarks'?addBookmark():startAnnotation();root.appendChild(add);if(rightTab==='bookmarks'){if(!bookmarks.length)root.insertAdjacentHTML('beforeend','<p class="hint" style="padding:12px">Закладок пока нет. Добавьте первую.</p>');bookmarks.slice().sort((a,b)=>a-b).forEach(p=>{const el=document.createElement('div');el.className='item';el.innerHTML=`<span class="bookmark">▮</span><div class="content"><strong>Страница ${p}</strong><small>Перейти к странице</small></div><button class="remove" title="Удалить">✕</button>`;el.querySelector('.content').onclick=()=>setPage(p);el.querySelector('.remove').onclick=()=>{removeBookmark(p)};root.appendChild(el)})}else{if(!notes.length)root.insertAdjacentHTML('beforeend','<p class="hint" style="padding:12px">Заметок пока нет. Можно добавить заметку к странице или нажать на нужное место на странице.</p>');notes.slice().reverse().forEach(n=>{const el=document.createElement('div');el.className='item';el.innerHTML=`<span style="color:#17683b">✎</span><div class="content"><strong>${safe(n.text)}</strong><small>Страница ${n.page}${n.x!=null?' · отметка на странице':n.rects?' · выделение текста':''}</small></div><button class="remove" title="Удалить">✕</button>`;el.querySelector('.content').onclick=()=>{setPage(n.page);editNote(n.id)};el.querySelector('.remove').onclick=()=>{notes=notes.filter(x=>x.id!==n.id);store('notes',notes);renderRight();renderMarkersAll()};root.appendChild(el)})}}
+function renderMarkersAll(){document.querySelectorAll('.flip-page').forEach(el=>renderMarkers(el,+el.dataset.page))}
+function addBookmark(){if(!bookmarks.includes(current)){bookmarks.push(current);store('bookmarks',bookmarks)}renderRight();renderBookmarkRail();renderMarkersAll();toast('Закладка добавлена')}
+function noteColor(c){return {yellow:'rgba(244,214,93,.52)',green:'rgba(162,216,171,.52)',pink:'rgba(239,179,196,.52)',blue:'rgba(168,201,242,.52)'}[c]||'rgba(244,214,93,.52)'}
+let noteTool='marker',noteInk='yellow',noteDrag=null;
+function startAnnotation(){annotationMode=false;rightTab='notes';renderRight();syncPanelButtons();$('reader').classList.add('annotation-active');toast('Выделите текст мышью на странице. Esc — отмена')}
+function stopAnnotation(){$('reader').classList.remove('annotation-active');noteDrag=null;document.querySelectorAll('.note-draft').forEach(e=>e.remove())}
+function notePageAt(x,y){const pages=[...document.querySelectorAll('.flip-page,.static-fallback-page')].filter(p=>p.getBoundingClientRect().width>0&&p.getBoundingClientRect().height>0);for(const p of pages){const r=p.getBoundingClientRect();if(x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom){const n=Number(p.dataset.page);if(n>=1&&n<=N)return {page:n,rect:r}}}return null}
+function notePoint(x,y,r){return {x:Math.max(0,Math.min(100,(x-r.left)/r.width*100)),y:Math.max(0,Math.min(100,(y-r.top)/r.height*100))}}
+function makeNoteRect(a,b){return {x:Math.min(a.x,b.x),y:Math.min(a.y,b.y),w:Math.abs(a.x-b.x),h:Math.abs(a.y-b.y)}}
+function showNoteDraft(){document.querySelectorAll('.note-draft').forEach(e=>e.remove());if(!noteDrag)return;const reader=$('reader'),rr=reader.getBoundingClientRect(),r=noteDrag.rect;for(const shape of noteDrag.rects){const d=document.createElement('div');d.className='note-draft';d.style.cssText=`left:${r.left-rr.left+r.width*shape.x/100}px;top:${r.top-rr.top+r.height*shape.y/100}px;width:${r.width*shape.w/100}px;height:${r.height*shape.h/100}px;background:${noteColor(noteInk)}`;reader.appendChild(d)}}
+(function initAnnotations(){const surface=$('annotationSurface');
+ const tool=(id,value)=>$(id).onclick=()=>{noteTool=value;$('noteMarkerTool').classList.toggle('chosen',value==='marker');$('noteAreaTool').classList.toggle('chosen',value==='area')};tool('noteMarkerTool','marker');tool('noteAreaTool','area');
+ document.querySelectorAll('[data-note-color]').forEach(b=>b.onclick=()=>{noteInk=b.dataset.noteColor;document.querySelectorAll('[data-note-color]').forEach(x=>x.classList.toggle('chosen',x===b));showNoteDraft()});$('noteCancelTool').onclick=stopAnnotation;
+ surface.addEventListener('pointerdown',e=>{if(e.button!==0)return;const hit=notePageAt(e.clientX,e.clientY);if(!hit){toast('Начните выделение на странице учебника');return}e.preventDefault();const pt=notePoint(e.clientX,e.clientY,hit.rect);noteDrag={id:e.pointerId,page:hit.page,rect:hit.rect,start:pt,last:pt,rects:[]};surface.setPointerCapture(e.pointerId)});
+ surface.addEventListener('pointermove',e=>{const d=noteDrag;if(!d||d.id!==e.pointerId)return;const p=notePoint(e.clientX,e.clientY,d.rect);if(noteTool==='area'){d.rects=[makeNoteRect(d.start,p)]}else{const previous=d.last;const thickness=2.5;const r=makeNoteRect(previous,p);r.y=Math.max(0,Math.min(previous.y,p.y)-thickness/2);r.h=Math.min(100-r.y,Math.max(thickness,Math.abs(p.y-previous.y)+thickness));r.w=Math.max(r.w,.5);d.rects.push(r);if(d.rects.length>600)d.rects=d.rects.filter((_,i)=>i%2===0)}d.last=p;showNoteDraft()});
+ function finish(e){const d=noteDrag;if(!d||d.id!==e.pointerId)return;noteDrag=null;document.querySelectorAll('.note-draft').forEach(el=>el.remove());if(e.type==='pointercancel')return;let rects=d.rects.filter(r=>r.w>.1&&r.h>.1);if(!rects.length){const p=d.start;rects=[{x:p.x,y:Math.max(0,p.y-1.25),w:Math.min(12,100-p.x),h:2.5}]};if(noteTool==='marker'&&rects.length>1){const merged=[];for(const r of rects){const prev=merged[merged.length-1];if(prev&&Math.abs(prev.y-r.y)<1.1&&Math.abs(prev.h-r.h)<1.1){const right=Math.max(prev.x+prev.w,r.x+r.w);prev.x=Math.min(prev.x,r.x);prev.w=right-prev.x}else merged.push({...r})}rects=merged}stopAnnotation();newHighlightNote(d.page,rects,noteInk)}
+ surface.addEventListener('pointerup',finish);surface.addEventListener('pointercancel',finish);
+})();
+function newHighlightNote(page,rects,color){openModal('Заметка к выделению',`<p class="hint">Страница ${page} · выделенный фрагмент</p><textarea class="field" id="noteText" rows="5" placeholder="Введите комментарий к выделению"></textarea>`,[{label:'Отмена',close:true},{label:'Сохранить',primary:true,fn:()=>{const val=$('noteText').value.trim();if(!val)return false;notes.push({id:Date.now()+Math.random(),page,rects,color,text:val});store('notes',notes);renderRight();renderMarkersAll();return true}}])}
+function newNote(page=current,x=null,y=null){openModal('Новая заметка',`<p class="hint">Страница ${page}${x!==null?' · привязка к точке на странице':''}</p><textarea class="field" id="noteText" rows="5" placeholder="Введите текст заметки"></textarea>`,[{label:'Отмена',close:true},{label:'Сохранить',primary:true,fn:()=>{const val=$('noteText').value.trim();if(!val)return false;notes.push({id:Date.now()+Math.random(),page,x,y,text:val});store('notes',notes);renderRight();renderMarkersAll();return true}}])}
+function editNote(id){const n=notes.find(x=>x.id===id);if(!n)return;openModal('Заметка · страница '+n.page,`<textarea class="field" id="noteText" rows="5">${safe(n.text)}</textarea>`,[{label:'Закрыть',close:true},{label:'Сохранить',primary:true,fn:()=>{n.text=$('noteText').value.trim();store('notes',notes);renderRight();renderMarkersAll();return true}}])}
+function openModal(title,body,buttons=[],wide=false){const host=$('modalHost');host.innerHTML=`<div class="modalback"><div class="modal ${wide?'wide':''}" role="dialog" aria-modal="true"><div class="modalhead"><div><small style="color:#888">Ногай тил · 8 класс</small><h2>${safe(title)}</h2></div><button class="iconbtn" id="modalClose" aria-label="Закрыть">✕</button></div><div class="modalbody">${body}</div><div class="modalfoot" id="modalActions"></div></div></div>`;host.querySelector('#modalClose').onclick=closeModal;host.querySelector('.modalback').onclick=e=>{if(e.target.classList.contains('modalback'))closeModal()};buttons.forEach(b=>{const el=document.createElement('button');el.className=b.primary?'primary':'secondary';el.textContent=b.label;el.onclick=()=>{if(b.fn){if(b.fn()!==false)closeModal()}else if(b.close)closeModal()};$('modalActions').appendChild(el)});activeModal=true}
+function openRuleAudio54(){
+ const body='<p class="hint">Страница 54 · аудиозапись к правилу</p><audio id="rule54Audio" class="audio-player-native" controls preload="metadata"><source src="audio/rule_54.m4a" type="audio/mp4">Ваш браузер не поддерживает воспроизведение аудио.</audio><div class="audio-speed"><label for="rule54Speed">Скорость воспроизведения</label><select id="rule54Speed"><option value="0.75">0,75×</option><option value="1" selected>1×</option><option value="1.25">1,25×</option><option value="1.5">1,5×</option></select></div><p class="hint" style="margin-top:14px">Запись воспроизводится в отдельном окне. При закрытии воспроизведение останавливается.</p>';
+ openModal('Аудиоправило · страница 54',body,[{label:'Закрыть',close:true}]);
+ $('rule54Speed').onchange=e=>{$('rule54Audio').playbackRate=Number(e.target.value)};
+}
+function closeModal(){$('modalHost').innerHTML='';activeModal=false}
+function openExercise(){openModal('Упражнение 1 · страница 5',`<p class="hint">Демонстрация интерактивного задания. Формулировки и проверку ответов необходимо согласовать отдельно.</p><h3>Выберите вариант ответа</h3><p>Это пример работы модального теста поверх учебника.</p><label style="display:block;margin:12px 0"><input type="radio" name="ex" value="1"> Вариант 1</label><label style="display:block;margin:12px 0"><input type="radio" name="ex" value="2"> Вариант 2</label><label style="display:block;margin:12px 0"><input type="radio" name="ex" value="3"> Вариант 3</label><div id="exerciseResult"></div>`,[{label:'Закрыть',close:true},{label:'Проверить',primary:true,fn:()=>{const v=document.querySelector('input[name=ex]:checked');$('exerciseResult').innerHTML=`<div class="result">${v?'Ответ выбран. Проверка учебного содержания пока не настроена.':'Сначала выберите ответ.'}</div>`;return false}}])}
+function openAudio(){openModal('Аудиозадание · страница 32','<p>На странице учебника предусмотрено задание с прослушиванием.</p><p class="hint">Аудиофайл не входит в загруженный PDF. После добавления звукового файла здесь появится управление воспроизведением.</p>',[{label:'Понятно',close:true}])}
+function toast(t){const el=document.createElement('div');el.className='toast';el.textContent=t;document.body.appendChild(el);setTimeout(()=>el.remove(),2400)}
+// Direct page navigation: Enter confirms, Escape cancels, blur confirms valid values.
+const pageInput=$('pageInput');
+function commitPageInput(){
+ const raw=pageInput.value.trim();const n=Number(raw);
+ if(!raw||!Number.isInteger(n)||n<1||n>N){pageInput.classList.add('invalid');pageInput.value=current;pageInput.classList.remove('invalid');return;}
+ pageInput.classList.remove('invalid');setPage(n);pageInput.value=current;
+}
+pageInput.addEventListener('keydown',e=>{
+ if(e.key==='Enter'){e.preventDefault();commitPageInput();pageInput.blur()}
+ else if(e.key==='Escape'){e.preventDefault();pageInput.value=current;pageInput.blur()}
+});
+pageInput.addEventListener('blur',commitPageInput);
+pageInput.addEventListener('input',()=>pageInput.classList.remove('invalid'));
+$('edgePrev').onclick=()=>turnPage(-1);$('edgeNext').onclick=()=>turnPage(1);$('prev').onclick=()=>turnPage(-1);$('next').onclick=()=>turnPage(1);$('first').onclick=()=>setPage(1);$('last').onclick=()=>setPage(mode==='spread'?N-1:N);$('zoom').oninput=e=>{zoom=+e.target.value;render(true)};$('fitBtn').onclick=()=>{zoom=100;render(true)};$('viewMode').onchange=e=>{mode=e.target.value;current=canonical(current);store('page',current);render(true)};
+// The top navigation reflects which side panels are actually visible.
+function syncPanelButtons(){
+ const tocOpen=!$('leftSide').classList.contains('hidden');
+ const rightOpen=!$('rightSide').classList.contains('hidden');
+ for(const [id,open] of [['tocToggle',tocOpen],['bookmarkToggle',rightOpen&&rightTab==='bookmarks'],['notesToggle',rightOpen&&rightTab==='notes']]){
+  const btn=$(id);btn.classList.toggle('active',open);btn.setAttribute('aria-expanded',String(open));
+ }
+}
+function panelLayoutChanged(){
+ syncPanelButtons();
+ // Recalculate the spread after the reading area changes width.
+ requestAnimationFrame(()=>render(false));
+}
+$('tocToggle').onclick=()=>{$('leftSide').classList.toggle('hidden');panelLayoutChanged()};
+$('closeLeft').onclick=()=>{$('leftSide').classList.add('hidden');panelLayoutChanged()};
+function toggleRightPanel(tab){
+ const sameTab=rightTab===tab;
+ const wasOpen=!$('rightSide').classList.contains('hidden');
+ rightTab=tab;
+ $('rightSide').classList.toggle('hidden',sameTab&&wasOpen);
+ renderRight();panelLayoutChanged();
+}
+$('bookmarkToggle').onclick=()=>toggleRightPanel('bookmarks');
+$('notesToggle').onclick=()=>toggleRightPanel('notes');
+$('tabBookmarks').onclick=()=>{rightTab='bookmarks';renderRight();syncPanelButtons()};
+$('tabNotes').onclick=()=>{rightTab='notes';renderRight();syncPanelButtons()};
+$('settingsBtn').onclick=()=>openModal('Настройки',`<p>Параметры отображения учебника</p><label><input type="checkbox" id="annotationCheck" ${annotationMode?'checked':''}> Режим добавления заметки нажатием на страницу</label><p class="hint">В этом режиме нажмите на нужное место страницы, чтобы прикрепить заметку.</p>`,[{label:'Готово',primary:true,fn:()=>{annotationMode=$('annotationCheck').checked;toast(annotationMode?'Нажмите на страницу для добавления заметки':'Режим заметок отключён');return true}}]);
+// Block direct page-grabbing without blocking click-to-annotate or page markers.
+for(const type of ['mousedown','touchstart','pointerdown'])$('book').addEventListener(type,e=>{if(e.target.closest('button'))return;e.stopPropagation();},true);
+$('book').addEventListener('click',e=>{if(!annotationMode||e.target.closest('button'))return;const page=e.target.closest('.flip-page');if(!page)return;const rect=page.getBoundingClientRect();newNote(+page.dataset.page,Math.round((e.clientX-rect.left)/rect.width*1000)/10,Math.round((e.clientY-rect.top)/rect.height*1000)/10)});
+$('fullscreenBtn').onclick=()=>{if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen?.()};$('moreBtn').onclick=()=>openModal('Дополнительно',`<p>Для добавления заметки в конкретное место страницы откройте <b>Настройки</b> и включите соответствующий режим.</p><p>Закладки и заметки сохраняются в браузере на этом устройстве.</p><p>Клавиши ← и → перелистывают страницы.</p>`,[{label:'Закрыть',close:true}]);
+async function search(){const q=$('searchInput').value.trim().toLocaleLowerCase();if(!q)return;openModal('Поиск по учебнику','<p>Ищем совпадения…</p>',[{label:'Закрыть',close:true}],true);try{if(!searchText){const r=await fetch('search.json');if(!r.ok)throw Error('Файл поиска не найден');searchText=await r.json()}const found=[];searchText.forEach((t,i)=>{const at=t.toLocaleLowerCase().indexOf(q);if(at>=0)found.push({page:i+1,snip:t.slice(Math.max(0,at-50),Math.min(t.length,at+q.length+90)).replace(/\s+/g,' ')})});const body=$('modalHost').querySelector('.modalbody');body.innerHTML=`<p>Найдено страниц: <b>${found.length}</b></p>`+(found.length?found.slice(0,100).map(x=>`<div class="item"><div class="content" data-goto="${x.page}"><strong>Страница ${x.page}</strong><small>${safe(x.snip)}</small></div></div>`).join(''):'<p>Совпадений не найдено.</p>');body.querySelectorAll('[data-goto]').forEach(el=>el.onclick=()=>{setPage(+el.dataset.goto);closeModal()})}catch(e){$('modalHost').querySelector('.modalbody').textContent='Не удалось загрузить поиск. Откройте читалку через локальный сервер, как указано в инструкции.'}}
+$('searchGo').onclick=search;$('searchInput').onkeydown=e=>{if(e.key==='Enter')search()};document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('reader').classList.contains('annotation-active')){stopAnnotation();return}if(e.key==='Escape'&&activeModal)closeModal();if(activeModal||['INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;if(e.key==='ArrowRight'){e.preventDefault();turnPage(1)}if(e.key==='ArrowLeft'){e.preventDefault();turnPage(-1)}});// Resize only after layout settles. Never tear down an unchanged book.
+let resizeTimer=0,resizeEpoch=0;
+window.addEventListener('resize',()=>{
+  const epoch=++resizeEpoch;
+  clearTimeout(resizeTimer);
+  resizeTimer=setTimeout(()=>requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    if(epoch!==resizeEpoch)return;
+    // Keep the current spread and its notes/bookmarks when rebuilding.
+    render(false);
+    // A late layout pass can occur when browser chrome/panels settle.
+    setTimeout(()=>{if(epoch===resizeEpoch)render(false)},300);
+  })),280);
+});renderTOC();renderRight();syncPanelButtons();renderMarkersAll();
+// Always initialize the book on startup, after the layout is measurable.
+requestAnimationFrame(()=>{current=canonical(current);render(true)});
+</script></body></html>
